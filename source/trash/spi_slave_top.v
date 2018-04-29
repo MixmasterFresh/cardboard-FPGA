@@ -86,7 +86,6 @@ module SPI_Slave_top (
     wire          miso_tri_en;
     parameter wgnd = 1'b0;
     parameter wvcc = 1'b1;
-    wire          miso_i;
 
     parameter DATA_SIZE = 16;
 
@@ -97,7 +96,7 @@ module SPI_Slave_top (
           )
     spi_slave_u1 (
                   .i_sys_clk(i_sys_clk),  
-                  .i_sys_rst(i_sys_rst),  
+                  .i_sys_rst(!i_sys_rst),  
                   .i_csn(i_csn),      
                   .i_data(i_data),     
                   .i_wr(i_wr),       
